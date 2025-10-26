@@ -1,0 +1,91 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ */
+
+package com.mycompany.assessmentecnmi;
+import java.util.Scanner;
+public class AssessmentECNMI 
+{
+
+    public static void main(String[] args) {
+        System.out.println("----------Measurement--institution---------------------");
+        Scanner scanner = new Scanner(System.in);//menu to allow tech to choose disired option
+        System.out.println("Select your option: ");
+        System.out.println("Option 1: Welcome/Greeting.");
+        System.out.println("Option 2: Cost Calculating.");
+        System.out.println("Option 3: Object Identification.");
+        System.out.println("Option 4: Exit Menu.");
+        int menuChoice = scanner.nextInt();
+        scanner.nextLine();
+
+        System.out.println("------------------------------------------------------");
+
+        switch (menuChoice) {
+            case 1:
+                System.out.print("What is your first name?: ");
+                String firstName = scanner.nextLine(); // Logs name of current technician
+                char firstInitial = firstName.charAt(0);// takes the first inital of the tech's name
+                System.out.print("What is your surname?: ");
+                String lastName = scanner.nextLine();
+                System.out.println("Welcome " + firstInitial + lastName + " to the NMI Density Calculator and Metal Predictor");
+                System.exit(0);
+                break;
+
+            case 2:
+                System.out.print("How many objects would you like to input?: ");
+                int objectCount = scanner.nextInt();
+                scanner.nextLine(); //Logs ammount of objects user has inputed
+                
+            double assessment_Fee = 2.50;// object fees
+            double postagehandling_Fee = 7.99;//transportation fees
+            
+                System.out.println("You have entered " + objectCount + " objects for cost calculation.");//displays how many objects will be caclualated
+                float costCalulation =(float) (objectCount * assessment_Fee + postagehandling_Fee);// caclulation of fees  x object
+                System.out.println("The total cost is: " + "£" + costCalulation );// prints the total cost of object caluating fees
+                break;
+
+
+            case 3:
+                 System.out.println("Input the ammount of objects for testing: ");//Checking how many objects want to be tested
+                int objectCalc = scanner.nextInt();//logs user input
+                scanner.nextLine();
+                int counter = 0;
+                while(counter < objectCalc)//runs program until the counter reaches the ammount of objects user has inputted
+                {
+                 System.out.println("What is the mass of the object?: ");
+                 double massStore = scanner.nextDouble();//logs the mass of object
+
+                 System.out.println("What is the Diameter of the object:");
+                 double diameterStore = scanner.nextDouble();//logs diameter of object
+
+                 System.out.println("this is mass: " + massStore);
+                 System.out.println("this is diameter: " + diameterStore);
+                 counter++;
+
+                 double radiusCalc = diameterStore / 2;
+                 System.out.println("The answer is: "+ radiusCalc);
+
+                 double volumeCalc = (4.0 / 3.0) * Math.PI * Math.pow(radiusCalc, 3);
+                 double densityCalc = massStore / volumeCalc;
+                 double scaledDensity = densityCalc * 1000;
+                    System.out.printf("Density: %.5f kg/m^3%n", scaledDensity);
+                }
+                System.out.println("Processed " + counter + " objects. ");
+                scanner.close();
+                
+                        
+                break;
+
+            case 4:// simple exit menu
+                System.out.println("Exiting the menu. Exiting now.");
+                break;
+
+            default:// if a number or letter is inputed this re-runs program and displays invalid option
+                System.out.println("Invalid option selected pick again.");
+                AssessmentECNMI.main(args);
+                break;
+        }
+
+        scanner.close();
+    }
+}
