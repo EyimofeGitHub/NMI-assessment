@@ -69,6 +69,22 @@ public class AssessmentECNMI
                  double densityCalc = massStore / volumeCalc;
                  double scaledDensity = densityCalc * 1000;
                     System.out.printf("Density: %.5f kg/m^3%n", scaledDensity);
+                    //Aluminium = 2700
+                    //Titanium = 4500
+                    //Zinc = 7135
+                    //Iron = 7874
+                    //Nickel = 8908
+                    //Copper = 8960
+                    //silver = 10490
+                    //Lead = 11340
+                    //Gold = 19300
+                    //Platinum = 21450
+
+
+
+                    
+                    if(scaledDensity >= 8690)
+                    System.out.println("Predicted metal is: Copper");
                 }
                 System.out.println("Processed " + counter + " objects. ");
                 scanner.close();
