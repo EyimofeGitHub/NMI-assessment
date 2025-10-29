@@ -2,13 +2,17 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  */
 
-package com.mycompany.assessmentecnmi;
+package com.mycompany.homeprojectnmi;
 import java.util.Scanner;
-public class AssessmentECNMI 
-{
+/**
+ *
+ * @author eyimo
+ */
+public class HomeProjectNMI {
 
-    public static void main(String[] args) {
-        System.out.println("----------Measurement--institution---------------------");
+    public static void main(String[] args) 
+    {
+         System.out.println("----------Measurement--institution---------------------");
         Scanner scanner = new Scanner(System.in);//menu to allow tech to choose disired option
         System.out.println("Select your option: ");
         System.out.println("Option 1: Welcome/Greeting.");
@@ -62,13 +66,11 @@ public class AssessmentECNMI
                  System.out.println("this is diameter: " + diameterStore);
                  counter++;
 
-                 double radiusCalc = diameterStore / 2;
-                 System.out.println("The answer is: "+ radiusCalc);
-
-                 double volumeCalc = (4.0 / 3.0) * Math.PI * Math.pow(radiusCalc, 3);
-                 double densityCalc = massStore / volumeCalc;
-                 double scaledDensity = densityCalc * 1000;
-                    System.out.printf("Density: %.5f kg/m^3%n", scaledDensity);
+                    double radiusCalc = diameterStore / 2;
+                    double volumeCalc = (4.0 / 3.0) * Math.PI * Math.pow(radiusCalc, 3);
+                    double densityCalc = massStore / volumeCalc;
+                    double scaledDensity = Math.floor(densityCalc * 1000);
+                    System.out.printf("Density is: %.1f\n", scaledDensity);
                     //Aluminium = 2700
                     //Titanium = 4500
                     //Zinc = 7135
@@ -83,7 +85,7 @@ public class AssessmentECNMI
 
 
                     
-                    if(scaledDensity >= 8690)
+                    if(densityCalc >= 8690)
                     System.out.println("Predicted metal is: Copper");
                 }
                 System.out.println("Processed " + counter + " objects. ");
@@ -98,7 +100,7 @@ public class AssessmentECNMI
 
             default:// if a number or letter is inputed this re-runs program and displays invalid option
                 System.out.println("Invalid option selected pick again.");
-                AssessmentECNMI.main(args);
+                HomeProjectNMI.main(args);
                 break;
         }
 
