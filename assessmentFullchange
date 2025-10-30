@@ -70,23 +70,29 @@ public class HomeProjectNMI {
                     double volumeCalc = (4.0 / 3.0) * Math.PI * Math.pow(radiusCalc, 3);
                     double densityCalc = massStore / volumeCalc;
                     double scaledDensity = Math.floor(densityCalc * 1000);
-                    System.out.printf("Density is: %.1f\n", scaledDensity);
-                    //Aluminium = 2700
-                    //Titanium = 4500
-                    //Zinc = 7135
-                    //Iron = 7874
-                    //Nickel = 8908
-                    //Copper = 8960
-                    //silver = 10490
-                    //Lead = 11340
-                    //Gold = 19300
-                    //Platinum = 21450
+                    System.out.printf("Density is: %.2f\n", scaledDensity);
 
-
-
+                    if(scaledDensity == 8690)
+                        System.out.println("Predicted metal is: Copper");
+                        else if(scaledDensity == 2698)
+                            System.out.println("Predicted metal is: Aluminium");
+                            else if(scaledDensity == 19290)
+                                System.out.println("Predicted metal is: Gold");
+                                else if(scaledDensity == 7131)
+                                    System.out.println("Predicted metal is: Zinc");
+                                    else if(scaledDensity == 8908)
+                                        System.out.println("Predicted metal is: Nickel");
+                                        else if(scaledDensity == 7870)
+                                            System.out.println("Predicted metal is: Iron");
+                                            else if(scaledDensity == 4497)
+                                        System.out.println("Predicted metal is: Titanium");
+                                        else if(scaledDensity == 11334)
+                                    System.out.println("Predicted metal is: Lead");
+                                    else
+                                    System.out.println("unknown Metal");
                     
-                    if(densityCalc >= 8690)
-                    System.out.println("Predicted metal is: Copper");
+                    
+                    
                 }
                 System.out.println("Processed " + counter + " objects. ");
                 scanner.close();
